@@ -102,10 +102,11 @@ var jQuery = window.jQuery;
 
 (function ($) {
 	var $ta = $('#hash_ta');
-	$('#hash_md5, #hash_sha1').click(function () {
+	$('#hash_md5, #hash_sha1, #hash_sha256').click(function () {
 		var funcmap = {
 			"hash_md5": window.md5,
-			"hash_sha1": window.sha1
+			"hash_sha1": window.sha1,
+			"hash_sha256": $.sha256,
 		};
 		$ta.val(
 			$ta.val().replace(/\r/g, "\n").replace(/\n{2,}/g, "\n").trim().split("\n").map(funcmap[this.id]).join("\n")
